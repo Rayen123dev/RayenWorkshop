@@ -1,0 +1,21 @@
+<table border="3px">
+        <tr>
+            <td>Title</td>
+            <td>PublicationDate</td>
+            <td>Published</td>
+            <td>Category</td>
+            <td>Author</td>
+            <td>Actions</td>
+        </tr>
+        {%for i in Book%}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.publicationDate|date()}}</td>
+            <td>{{i.published}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.author}}</td>
+            <td><a href="">show</a></td>
+            <td><a href="{{path('updatebook',{'id':i.id})}}">edit</a></td>
+        </tr>
+        {%endfor%}
+    </table>

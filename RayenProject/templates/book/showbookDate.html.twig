@@ -1,0 +1,10 @@
+<h2>List of Books Published Between 2014-01-01 and 2018-12-31</h2>
+    
+    {% for book in Books %}
+            
+                <h4>{{ book.title }}</h4> 
+                <h4>{{ book.publicationDate|date('Y-m-d') }}</h4> 
+                <h4>{{ book.author }}</h4> 
+                <h4>**************************</h4>
+            
+    {% endfor %}

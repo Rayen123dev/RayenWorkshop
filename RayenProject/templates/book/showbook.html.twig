@@ -1,0 +1,33 @@
+{{ form(form) }}
+<table border="3px">
+        <tr>
+            <td>Title</td>
+            <td>PublicationDate</td>
+            <td>Published</td>
+            <td>Category</td>
+            <td>Author</td>
+            <td>Actions</td>
+        </tr>
+        {%for i in Book%}
+        <tr>
+            <td>{{i.title}}</td>
+            <td>{{i.publicationDate|date()}}</td>
+            <td>{{i.published}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.author}}</td>
+            <td><a href="">show</a></td>
+            <td><a href="{{path('updatebook',{'id':i.id})}}">edit</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    <h3><a href="{{path('addbook')}}">Create new</a></h3>
+    <h3><a href="{{path('searchbook')}}">findBooksBefore2023WithAuthorsHavingMoreThan35Books</a></h3>
+    {% for item in nbrp %}
+    <h3>Number of the books published : {{item[1]}}</h3>
+    {% endfor %}
+    {% for item in nbrpno %}
+    <h3>Number of the books unpublished : {{item[1]}}</h3>
+    {% endfor %}
+    {% for item in nbr_cat_sc %}
+    <h3>Number of the books in the category Science Fiction : {{item[1]}}</h3>
+    {% endfor %}

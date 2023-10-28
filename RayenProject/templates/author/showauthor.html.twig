@@ -1,0 +1,23 @@
+    {{ form(form) }}
+
+    <table border="3px">
+        <tr>
+            <td>Username</td>
+            <td>Email</td>
+            <td>Number of books</td>
+            <td>Actions</td>
+        </tr>
+        {%for i in Author%}
+        <tr>
+            <td>{{i.username}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.nbbooks}}</td>
+            <td><a href="">show</a></td>
+            <td><a href="{{path('updateauthor',{'id':i.id})}}">edit</a></td>
+            <td><a href="{{path('deleteauthor',{'id':i.id})}}">Delete</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    <h3><a href="{{path('addauthor')}}">Create new</a></h3>
+    <h3>Delete author whos number of books equals 0 <a href="{{path('deletezero')}}">Delete</a></h3>
+
